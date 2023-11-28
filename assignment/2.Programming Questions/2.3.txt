@@ -1,0 +1,25 @@
+Q)What is CORS, and how does it work? How can you handle CORS-related issues in a web application?
+A)
+
+ CORS, or Cross-Origin Resource Sharing, is like a set of rules that web browsers follow to decide if they should allow a web page to request resources (like data or images) from a different domain.
+  In simple terms, CORS is a security feature that ensures web pages can't freely fetch data from any random website. It adds a layer of protection to prevent malicious activities.
+
+working of CORS:
+
+1.Same-Origin Policy:Normally, web browsers have a security policy called Same-Origin Policy, which restricts web pages from making requests to a different domain than the one that served the web page.
+
+2.CORS Headers:CORS introduces special headers (like `Access-Control-Allow-Origin`) that a server includes in its response to tell the browser that it's okay for a web page from a different origin to access its resources.
+
+3.Browser Checks:(i)When a web page tries to make a cross-origin request, the browser checks for these CORS headers in the server's response.
+   (ii)If the headers allow it, the browser lets the request go through. If not, it blocks the request to protect against potentially harmful actions.
+
+Handling of CORS issues:
+
+1.Server Configuration:On the server side, ensure that it includes the necessary CORS headers in its responses. For example, setting `Access-Control-Allow-Origin` to the appropriate domain.
+
+2.CORS Middleware:Use middleware or plugins on the server to automatically handle CORS headers. Many server-side frameworks have built-in support for CORS configuration.
+
+3.Proxy Server: Set up a proxy server on the same domain as your web page to forward requests to the external domain. Since the requests are then same-origin, CORS doesn't come into play.
+ 
+these are some of handling techniques.
+

@@ -1,0 +1,17 @@
+QUESTION:check wheather a string is palindrome or not
+
+ANS)LANGUAGE: Python
+   
+
+n = input()  # To Take User Input
+
+x = n[::-1]  # As STRING IS IMMUTABLE, WE HAVE TO REVERSE A STRING AND STORE IN VARIABLE X
+
+if x == n:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+
+/*Palindrome is nothing but if you reverse a string it should be same as original string */
+    

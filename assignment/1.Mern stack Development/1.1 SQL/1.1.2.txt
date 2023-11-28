@@ -1,0 +1,16 @@
+SELECT
+    Post.PostID,
+    Post.Title,
+    Post.Content,
+    User.UserID,
+    User.Username,
+    User.Email
+FROM
+    Post
+JOIN
+    User ON Post.UserID = User.UserID
+WHERE
+    User.UserID = 'specific_user_id'; 
+
+/*this query helps to show a specified user_id posts   such that first  it creates new table joining post and user table based on condition and formed a table of specific user and his posts ,
+you have to replace required userid instead of'specific_user_id'.

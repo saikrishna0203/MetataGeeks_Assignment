@@ -1,0 +1,24 @@
+Q)Explain the difference between SQL and NoSQL databases. Provide examples of use cases for each.
+
+A)
+->SQL (Structured Query Language) and NoSQL  are two different types of database systems that are used for storing data.
+
+     (i) SQL databases are relational databases that use structured query language for defining and manipulating the data. They are table-based and are a good fit for applications with complex transactions and row-oriented operations. 
+
+           Examples of SQL databases include MySQL, Oracle, etc.
+
+            Use cases for SQL databases:
+                 - Banking systems where transactions need to be atomic, consistent, isolated, and durable (ACID).
+                  - Applications that require multi-row transactions like accounting systems 
+                  -  systems that were designed around a relational model.
+
+      (ii) NoSQL databases on the other hand, are non-relational databases that can store and retrieve data in a variety of ways, not just via tables. NoSQL databases can be document-based, key-value pairs, wide-column stores, or graph databases. They are a good fit for applications with large amounts of data. 
+            
+              Examples of NoSQL databases include MongoDB etc.
+
+              Use cases for NoSQL databases:
+                       - Real-time analytics and IoT applications.
+                        - Applications dealing with large amounts of data with little to no structure.
+                        - Rapid development of applications with evolving data requirements.
+
+so, the choice between SQL and NoSQL databases depends largely on the specific requirements of the application you are developing. SQL is generally a good choice for applications requiring complex queries and transaction reliability, while NoSQL is better for applications requiring scalability and speed with large amounts of unstructured data.

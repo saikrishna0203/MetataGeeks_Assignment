@@ -1,0 +1,31 @@
+CREATE TABLE User (
+  UserID INT PRIMARY KEY,
+  Username VARCHAR(255),
+  Email VARCHAR(255),
+  PASSWORD VARCHAR(255),
+  date_time DATETIME
+);
+
+CREATE TABLE Post (
+  PostID INT PRIMARY KEY,
+  Title VARCHAR(255),
+  Content TEXT,
+  UserID INT,
+  date_time DATETIME,
+  FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+CREATE TABLE COMMENT (
+  CommentID INT PRIMARY KEY,
+  Content TEXT,
+  UserID INT,
+  PostID INT,
+  date_time DATETIME,
+  FOREIGN KEY (UserID) REFERENCES User(UserID),
+  FOREIGN KEY (PostID) REFERENCES Post(PostID)
+);
+
+
+/*Here we have created 3 tables one is User,Post,Comment  respectively and here we have used 2 keys named
+ 1.primary key:it implies a unique row of a table
+ 2.Foreign key:it connects one table with primary key of another table

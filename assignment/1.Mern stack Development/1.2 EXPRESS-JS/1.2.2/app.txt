@@ -1,0 +1,57 @@
+const express = require("express");
+const path = require("path");
+
+const { open } = require("sqlite");
+const sqlite3 = require("sqlite3");
+const app = express();
+
+const dbPath = path.join(__dirname, "blog.db");
+
+let db = null;
+
+const initializeDBAndServer = async () => {
+  try {
+    db = await open({
+      filename: dbPath,
+      driver: sqlite3.Database,
+    });
+
+    await db.run(`
+      CREATE TABLE IF NOT EXISTS post (
+        post_id INTEGER PRIMARY KEY,
+        title TEXT,
+        content TEXT,
+        author TEXT
+      );
+    `);
+
+    const insertValuesQuery = `
+      INSERT INTO post (title, content, author)
+      VALUES
+        ('Post 1', 'Content of Post 1', 'Author 1'),
+        ('Post 2', 'Content of Post 2', 'Author 2'),
+        ('Post 3', 'Content of Post 3', 'Author 3');
+    `;
+
+    await db.run(insertValuesQuery);
+
+    app.listen(3000, () => {
+      console.log("Server Running at http://localhost:3000/");
+    });
+  } catch (e) {
+    console.log(`DB Error: ${e.message}`);
+    process.exit(1);
+  }
+};
+
+initializeDBAndServer();
+
+app.get("/posts", async (req, res) => {
+  const getPostsQuery = `
+      SELECT * FROM post;
+    `;
+
+  const posts = await db.all(getPostsQuery);
+  res.json(posts);
+});
+module.exports = app;
